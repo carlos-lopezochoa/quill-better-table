@@ -157,7 +157,7 @@ export default class TableColumnTool {
         position: 'fixed',
         top: `${cellRect.top}px`,
         left: `${cellRect.left + cellRect.width - 1}px`,
-        zIndex: '100',
+        zIndex: Infinity,
         height: `${tableRect.height + COL_TOOL_HEIGHT + 4}px`,
         width: '1px',
         backgroundColor: PRIMARY_COLOR
