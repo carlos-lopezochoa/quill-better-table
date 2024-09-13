@@ -1,6 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = (env, argv) => {
@@ -15,8 +13,7 @@ module.exports = (env, argv) => {
   } else {
     entry = {
       'quill-better-table.js': ['./src/quill-better-table.js'],
-      'quill-better-table': './src/assets/quill-better-table.scss',
-      'demo/demo1.js': './demo/js/demo1.js'
+      'quill-better-table': './src/assets/quill-better-table.scss'
     }
     minimize = false
   }
@@ -118,25 +115,10 @@ module.exports = (env, argv) => {
     },
 
     plugins:[
-      new HtmlWebpackPlugin({
-        title:'quill-better-table',
-        template:'./demo/demo1.html',
-        filename:'demo/demo1.html',
-      }),
-
       new MiniCssExtractPlugin({
         filename: '[name].css',
         chunkFilename: '[name].[id].css'
-      }),
-
-      new webpack.HotModuleReplacementPlugin({})
-    ],
-
-    devServer:{
-      host:'localhost',
-      static: path.join(__dirname, './dist'),
-      port: 8080,
-      hot: false
-    }
+      })
+    ]
   }
 }
